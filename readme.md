@@ -19,7 +19,8 @@
 > Note: While I am no designer by any means, this GUI could have been made prettier with more time. You said that appearance does not matter, and this fulfils all functional requirements so I deem it as "good enough", but no more than that.
 
 #### Hierarchical Clustering
-![Hierarchical Clustering](https://i.gyazo.com/3bd6242ab85e0803823328bafb94f38f.png)
+![Hierarchical Clustering1](https://i.gyazo.com/3bd6242ab85e0803823328bafb94f38f.png)
+![Hierarchical Clustering2](https://i.gyazo.com/095bc0d73efd77ec4a0baea935303382.png)
 
 #### K-Means Clustering (fixed iters: 20)
 ![K-Means Clustering (fixed iters: 20)](https://i.gyazo.com/79cbf412db106059a09302aac366b7f9.png)
