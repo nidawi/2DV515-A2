@@ -2,9 +2,12 @@
   "name": "2dv515-a2",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "/src/app.js",
   "dependencies": {
-    "@babel/runtime": "^7.7.1"
+    "@babel/runtime": "^7.7.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "http-errors": "^1.7.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.6.4",

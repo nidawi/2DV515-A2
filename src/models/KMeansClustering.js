@@ -39,7 +39,14 @@ export default class KMeansClustering {
    * @memberof KMeansClustering
    */
   executeClustering(aCount = 5, aIters = 20) {
-    if (aIters === false) return this.__smartClustering(aCount);
+    if (isNaN(aCount)) {
+      aCount = 5;
+    }
+    if (isNaN(aIters) && aIters !== false) {
+      aIters = 20;
+    }
+
+    if (aIters === false || aIters <= 0) return this.__smartClustering(aCount);
     else return this.__fixedClustering(aCount, aIters);
   }
 
@@ -145,6 +152,16 @@ export default class KMeansClustering {
     return this._centroids.slice(0);
   }
 
+  getAsJson() {
+    return this.getClusters()
+      .map(a => a.jsonify());
+  }
+
+  getAsJsTree() {
+    return this.getClusters()
+      .map(a => a.jstreeify());
+  }
+
   getMaxOccurencesOf(aWord) {
     return Math.max(...this._dataMgr
       .getBlogs()
@@ -169,7 +186,7 @@ export default class KMeansClustering {
     const words = this._dataMgr.getWords();
 
     for (let i = 0; i < aCentroidCount; i++) {
-      const centroid = new Centroid();
+      const centroid = new Centroid(`Cluster ${i + 1}`);
 
       words.forEach(a => centroid.addWord(a, this.getRandomCountFor(a)));
 

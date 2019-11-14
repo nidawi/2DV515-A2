@@ -4,11 +4,24 @@ import { createInterface } from 'readline';
 import Blog from './Blog';
 
 /**
+ * Represents a TSV-compatible data manager.
  * @export
- * @class TSVParser
+ * @class DataManager
  * @extends {EventEmitter}
  */
 export default class DataManager extends EventEmitter {
+  /**
+   * Creates an instance of DataManager.
+   * An event, "done", will be fired once the data
+   * manager is ready for use. See example.
+   * @example
+   * const dataMgr = new DataManager(path_to_tsv_file);
+   * dataMgr.on("done", () => {
+   * // do stuff with dataMgr here
+   * });
+   * @param {string} aFilePath
+   * @memberof DataManager
+   */
   constructor(aFilePath) {
     super();
 

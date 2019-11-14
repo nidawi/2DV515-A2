@@ -6,6 +6,7 @@
 .vscode
 build
 blogdata.txt
+dump.json
 
 ### Node ###
 # Logs

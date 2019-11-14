@@ -1,5 +1,5 @@
-import Blog from '../model/Blog'; //eslint-disable-line
-import Centroid from '../model/Centroid'; //eslint-disable-line
+import Blog from '../models/Blog'; //eslint-disable-line
+import Centroid from '../models/Centroid'; //eslint-disable-line
 
 /**
  * Caluclates the Pearson distance between two blogs/centroids.

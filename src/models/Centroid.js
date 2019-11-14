@@ -1,7 +1,12 @@
 import Blog from './Blog'; //eslint-disable-line
 
 export default class Centroid {
-  constructor() {
+  /**
+   * Creates an instance of Centroid.
+   * @param {string} [aCentroidId] Optional centroid id.
+   * @memberof Centroid
+   */
+  constructor(aCentroidId) {
     /**
      * @type {Map<string, number>}
      */
@@ -14,6 +19,7 @@ export default class Centroid {
      * @type {Blog[]}
      */
     this._previousAssignment = [];
+    this._id = aCentroidId;
     this._isFinished = false;
   }
 
@@ -65,7 +71,8 @@ export default class Centroid {
   }
 
   /**
-   * Returns a JSON-friendly representation of this object.
+   * Returns a JSON-friendly representation of this centroid
+   * and its associated cluster.
    * @todo consider return format = only string[]
    * @return {{length:number, assignments:string[]}[]}
    * @memberof Centroid
@@ -77,4 +84,36 @@ export default class Centroid {
         .map(a => a._name)
     };
   }
+
+  /**
+   * Returns a jsontree-friendly representation of this centroid
+   * and its associated cluster.
+   * jsontree is a jQuery plugin used to display trees.
+   * @return {jsontreeCentroid}
+   * @memberof Centroid
+   */
+  jstreeify() {
+    return {
+      text: this._id || '',
+      children: this._assignments
+        .map(a => ({
+          text: a._name,
+          icon: false
+        }))
+    };
+  }
 }
+
+/**
+ * @typedef jsontreeCentroid
+ * @type {Object}
+ * @property {string} text
+ * @property {jsontreeCentroidChild[]} children
+ */
+
+/**
+ * @typedef jsontreeCentroidChild
+ * @type {Object}
+ * @property {string} text
+ * @property {boolean} icon
+ */
